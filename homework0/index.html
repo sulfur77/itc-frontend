@@ -9,7 +9,9 @@
 
     console.log(plus(1, 2));
 
-    const PlusAll = (...theArgs) => theArgs.reduce( (currentValue, previousValue) => sum = currentValue + previousValue );
+    const PlusAll = (...theArgs) => theArgs.reduce(
+       (currentValue, previousValue) => sum = currentValue + previousValue
+    );
 
     console.log(PlusAll(1, 2 ,3 , 4));
 
@@ -23,7 +25,9 @@
 
     console.log(multiplication(3, 10));
 
-    const MultiplicationAll = (...theArgs) => theArgs.reduce( (currentValue, previousValue) => result = currentValue*previousValue );
+    const MultiplicationAll = (...theArgs) => theArgs.reduce(
+       (currentValue, previousValue) => result = currentValue*previousValue
+    );
 
     console.log(MultiplicationAll(1 ,2 ,3 , 4));
 
@@ -85,15 +89,14 @@
     }
 
     const getIn = (obj, path, def) => {
-      let property = []
       for (let i in path) {
-        property.push(path[i])
-        if (!obj[property]) {
-          return def;
-        }
-        return obj[property];
+        obj = obj[path[i]]
       }
-    }
+      if (!obj) {
+          return def;
+      }
+        return obj;
+      }
 
     console.log(getIn(person, ['address', 'street'], 'Бомж'));
 
