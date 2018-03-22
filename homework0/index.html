@@ -9,11 +9,11 @@
 
     console.log(plus(1, 2));
 
-    const PlusAll = (...theArgs) => theArgs.reduce(
+    const plusAll = (...theArgs) => theArgs.reduce(
        (currentValue, previousValue) => sum = currentValue + previousValue
     );
 
-    console.log(PlusAll(1, 2 ,3 , 4));
+    console.log(plusAll(1, 2 ,3 , 4));
 
     const multiplication = (number1, counter) => {
       let sum = 0;
@@ -25,11 +25,11 @@
 
     console.log(multiplication(3, 10));
 
-    const MultiplicationAll = (...theArgs) => theArgs.reduce(
+    const multiplicationAll = (...theArgs) => theArgs.reduce(
        (currentValue, previousValue) => result = currentValue*previousValue
     );
 
-    console.log(MultiplicationAll(1 ,2 ,3 , 4));
+    console.log(multiplicationAll(1 ,2 ,3 , 4));
 
     const mergeArrays = (arr1, arr2) => (newArr = arr1.concat(arr2));
 
@@ -90,22 +90,22 @@
 
     const getIn = (obj, path, def) => {
       for (let i in path) {
-        obj = obj[path[i]]
+        obj = obj[path[i]];
       }
       if (!obj) {
-          return def;
+        return def;
       }
         return obj;
-      }
+    }
 
     console.log(getIn(person, ['address', 'street'], 'Бомж'));
 
     const objectAsQueryString = (obj) => {
-      let QueryStr = '' ;
+      let queryStr = '' ;
       for (let key in obj) {
-        QueryStr += encodeURI( key + '=' + obj[key] + '&' );
+        queryStr += encodeURI( key + '=' + obj[key] + '&' );
       }
-      return QueryStr.slice(0, -1);
+      return queryStr.slice(0, -1);
     }
 
     console.log(objectAsQueryString({ name1: 'John', name2: 'Федор' }));
