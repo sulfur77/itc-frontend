@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <script>
+    const plus = (number1, number2) => (number1 + number2);
+
+    console.log(plus(1, 2));
+
+    const plusAll = (...theArgs) => theArgs.reduce(
+       (currentValue, previousValue) => sum = currentValue + previousValue
+    );
+
+    console.log(plusAll(1, 2 ,3 , 4));
+
+    const multiplication = (number1, counter) => {
+      let sum = 0;
+      for (let i = 0; i < counter; i++) {
+        sum = plus(number1, sum);
+      }
+      return(sum);
+    }
+
+    console.log(multiplication(3, 10));
+
+    const multiplicationAll = (...theArgs) => theArgs.reduce(
+       (currentValue, previousValue) => result = currentValue*previousValue
+    );
+
+    console.log(multiplicationAll(1 ,2 ,3 , 4));
+
+    const mergeArrays = (arr1, arr2) => (newArr = arr1.concat(arr2));
+
+    console.log(mergeArrays([1, 2, 3], [4, 5]));
+
+    const people = [{name:"John", gender:"male", movie:"La La Land"},
+      {name:"Mary", gender:"female", movie:"King Kong"},
+      {name:"Emma", gender:"female", movie:"The Dark Knight"},
+      {name:"Luc", gender:"male", movie:"Star wars"}
+    ]
+
+    const femalesFilter = (people) => {
+      let females = [];
+      for (let i = 0; i < people.length; i++) {
+        if (people[i].gender == "female") {
+          females.push(people[i]);
+        }
+      }
+      return females;
+    }
+
+    console.log(femalesFilter(people));
+
+
+    const femalePerson = people.filter(girls => girls.gender == "female");
+
+    console.log(femalePerson);
+
+    const quadrantFinder = (x, y) => {
+      if (x > 0 && y > 0) {
+        return "I quadrant";
+      } else if (x < 0 && y > 0) {
+        return "II quadrant";
+      } else if (x < 0 && y < 0) {
+        return "III quadrant";
+      } else if (x > 0 && y < 0) {
+        return "IV quadrant";
+      } else if (x == 0  && y != 0) {
+        return "It is OY";
+      } else if (y == 0 && x != 0) {
+        return "It is OX";
+      } else if (x == 0 && y == 0) {
+        return "It is 00";
+      }
+    }
+
+    console.log(quadrantFinder(1, 2));
+    console.log(quadrantFinder(-1, 2));
+    console.log(quadrantFinder(-2, -3));
+    console.log(quadrantFinder(4, -7));
+    console.log(quadrantFinder(0, 0));
+
+    const person = {
+      address: {
+          street: "Кутузовский проспект"
+      }
+    }
+
+    const getIn = (obj, path, def) => {
+      for (let i in path) {
+        obj = obj[path[i]];
+      }
+      if (!obj) {
+        return def;
+      }
+        return obj;
+    }
+
+    console.log(getIn(person, ['address', 'street'], 'Бомж'));
+
+    const objectAsQueryString = (obj) => {
+      let queryStr = '' ;
+      for (let key in obj) {
+        queryStr += encodeURI( key + '=' + obj[key] + '&' );
+      }
+      return queryStr.slice(0, -1);
+    }
+
+    console.log(objectAsQueryString({ name1: 'John', name2: 'Федор' }));
+
+  </script>
+</body>
+</html>
